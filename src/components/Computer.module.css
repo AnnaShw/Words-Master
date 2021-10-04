@@ -1,0 +1,62 @@
+.ComputerContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.inputContainerC{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.input{
+    height: 50px;
+    width: 400px;
+    font-size:xx-large;
+    text-align:start;
+}
+
+.button{
+    width:120px;
+    height: auto;
+    padding: 6px 12px;
+    font-size: 20px;
+    background-color: #161616;
+    cursor: pointer;
+    color:#ECDBBA;
+}
+
+.computersContainer{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.computersContainer div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.computer{
+    color: #161616;
+    font-size: 60px;
+    margin:0;
+}
+
+.helper{
+    font-size: 38px;
+    margin:0;
+    height: fit-content;
+}
+
+.computerField{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}

@@ -1,0 +1,27 @@
+.mainContainer{
+    display: flex;
+    justify-content: start;
+    flex-direction:column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.header{
+    display: flex;
+    justify-content:space-around;
+    flex-direction:row;
+    width: 100%;
+    align-items: center;
+}
+
+.content{
+    
+}
+
+.header button{
+    border-radius: 40px;
+    width: 80px;
+    height: 30px;
+    background-color: #1aeba5;
+    font-size:large;
+}

@@ -1,0 +1,43 @@
+.gameContainer{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction:column;
+    width: 600px;
+    background-color: #ECDBBA;
+    border: 2px solid black;
+}
+
+.insider{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.insider p{
+    width: 400px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.exitContainer{
+    display: flex;
+    width:120px;
+    justify-content: flex-end;
+}
+
+.resetButton{
+    display: flex;
+    flex-direction: row;
+    font-size:xx-large;
+    background-color: rgba(52, 103, 81, 0);
+    cursor: pointer;
+    border: none;
+    color:#161616;
+}
+
+.FinalStatement{
+    color: #f2411d;
+    font-size: 40px;
+    align-items: center;
+}

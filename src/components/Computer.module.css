@@ -1,8 +1,9 @@
 .ComputerContainer{
     margin-top: 50px;
+    height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -43,12 +44,6 @@
     align-items: center;
 }
 
-.computer{
-    color: #161616;
-    font-size: 60px;
-    margin:0;
-}
-
 .helper{
     font-size: 38px;
     margin:0;
@@ -56,7 +51,29 @@
 }
 
 .computerField{
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content:center;
 }
+
+.computer{
+    color: #161616;
+    font-size: 60px;
+    margin:0;
+    animation-iteration-count:infinite ;
+    animation-duration: 5s;
+    animation-direction:alternate;
+    animation-name: resize-anime;
+    animation-timing-function:ease-out;
+}
+
+@keyframes resize-anime {
+    from {
+      font-size: 60px;
+    } 
+    to {
+      font-size: 90px;
+    }
+  }
+  

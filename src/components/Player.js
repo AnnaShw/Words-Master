@@ -1,4 +1,4 @@
-import classes from './Player.module.css';
+import classes from './Computer.module.css';
 import { useState} from 'react';
 import englishWords from '../assets/wordsGame.json';
 import ErrorModal from './ErrorMosal';
@@ -50,6 +50,7 @@ function Player(props){
         while(trigger){
             if(oponentWord!=='' && (oponentWord[oponentWord.length-1]!== inputword[0])){
                 setStop(true);
+                props.stopGame(true);
                 return;
             }
             setOponentWords(OponentChoice(inputword[inputword.length-1]));
@@ -65,9 +66,9 @@ function Player(props){
                 <input className={classes.input} type='text' placeholder="Enter your word here..." onChange={InputWordHandler}/>
                 <button className={classes.button} onClick={buttonHandler}>Go!</button>
             </div>
-                <div className={classes.oponentsContainer}>
+                <div className={classes.computerField}>
                 {!stop && <div>
-                        <p className={classes.oponent}>{oponentWord}</p>
+                        <p className={classes.computer}>{oponentWord}</p>
                 </div>}
             </div>
         </div>

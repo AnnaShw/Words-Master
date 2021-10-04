@@ -3,6 +3,7 @@
     justify-content: flex-start;
     flex-direction:column;
     width: 600px;
+    height: 300px;
     background-color: #ECDBBA;
     border: 2px solid black;
 }
@@ -26,7 +27,7 @@
     justify-content: flex-end;
 }
 
-.resetButton{
+.Button{
     display: flex;
     flex-direction: row;
     font-size:xx-large;
@@ -37,7 +38,27 @@
 }
 
 .FinalStatement{
-    color: #f2411d;
+    width: 100%;
+    color: #161616;
     font-size: 40px;
-    align-items: center;
+}
+
+.newGame{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.newGame button{
+    width:60%;
+    height: auto;
+    padding: 6px 12px;
+    font-size: 20px;
+    background-color: #161616;
+    cursor: pointer;
+    color:#ECDBBA;
+}
+
+.newGame button:hover{
+    background-color: #346751;
 }

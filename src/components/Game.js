@@ -11,23 +11,28 @@ function Game(props){
     }
 
     const [stop,setStop]=useState(false);
-    const StopGame=()=>{setStop(true);console.log(stop)}
+    const StopGame=()=>{setStop(true);}
 
     return(
         <div className={classes.gameContainer}>
             {!stop && <div className={classes.insider}>
             <p className={classes.score}>Total score:{score}</p>
             <div className={classes.exitContainer}>
-                <button className={classes.resetButton} onClick={StopGame}>X</button>
+                <button className={classes.Button} onClick={StopGame}>X</button>
             </div>
             </div>}
             {props.playerBool && !stop && <div>
-                 <Player scoreHandling={updateScore}/>
+                 <Player scoreHandling={updateScore} stopGame={StopGame}/>
             </div>}
-            {props.computerBool &&<div>
-                <Computer scoreHandling={updateScore}/>
+            {props.computerBool && !stop &&<div>
+                <Computer scoreHandling={updateScore} stopGame={StopGame}/>
             </div>}
-            {stop && <p className={classes.FinalStatement}>End of Game.Total Score:{score}</p>}
+            {stop && <div className={classes.FinalStatement}>
+                    <p>End of Game.Total Score:{score}</p>
+                    <div className={classes.newGame}>
+                        <button onClick={props.newGame}>Let's play one more game!</button>
+                    </div>
+                </div>}
         </div>
     )
 }

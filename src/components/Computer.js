@@ -8,11 +8,12 @@ import ErrorModal from './ErrorMosal';
 function Computer(props){
     const [error,setError]=useState();
     const[inputword,setInputWord]=useState('');
+    const [stop,setStop]=useState(false);
+    const [computerWord,setcomputerWords]=useState('');
+
     const letters=['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
     const dictionary=[];
     let flag=true;
-    const [stop,setStop]=useState(false);
-    const [computerWord,setcomputerWords]=useState('');
     let help=true;
 
     const  begin=()=>{
@@ -33,6 +34,7 @@ function Computer(props){
             return;
         }
     },[]);
+    
     const JSonHandler=()=>{
         englishWords.map((data)=>dictionary.push(String(data)));
     }
@@ -61,6 +63,7 @@ function Computer(props){
             
             if(computerWord[computerWord.length-1]!== inputword[0] && dictionary.includes(inputword)){
                 setStop(true);
+                props.stopGame(true);
                 return;
             }
             if(!dictionary.includes(inputword)){

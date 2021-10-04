@@ -15,6 +15,7 @@ function App() {
 }
   
   const GameLoading=()=>{setgameInPlay(true);}
+  const newGame=()=>{setgameInPlay(false);}
 
   return (
     <div className="App">
@@ -22,7 +23,7 @@ function App() {
       <main>
       <Rules/>
       {!gameInPlay && <BeginScreen GameLoading={GameLoading} utilsfunc={callbackFunction}/>}
-      {gameInPlay && <Game playerBool={utilsBool.player} computerBool={utilsBool.computer} />}
+      {gameInPlay && <Game playerBool={utilsBool.player} computerBool={utilsBool.computer} newGame={newGame}/>}
       </main>
       <footer></footer>
     </div>

@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import classes from './BeginScreen.module.css';
 import {utilsBool} from '../App';
-import { begin } from './Computer';
 
 function BeginScreen(props){
     const [playB,setPlayB]=useState(true);

@@ -8,7 +8,7 @@ import ErrorModal from './ErrorMosal';
 function Computer(props){
     const [error,setError]=useState();
     const[inputword,setInputWord]=useState('');
-    const [stop,setStop]=useState(false);
+    const [stop,setStop]=useState(true);
     const [computerWord,setcomputerWords]=useState('');
 
     const letters=['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
@@ -22,22 +22,18 @@ function Computer(props){
             let index=Math.floor(Math.random() * dictionary.length);
             let temp1=String(dictionary[index]);
             if(first===temp1[0]){
-                setcomputerWords(temp1);
+                setcomputerWords(temp1.toLocaleLowerCase());
                 return;
             }
         }
     }
     useEffect(()=>{
-        JSonHandler();
+        englishWords.map((data)=>dictionary.push(String(data)));
         if(help){
             begin();
             return;
         }
     },[]);
-    
-    const JSonHandler=()=>{
-        englishWords.map((data)=>dictionary.push(String(data)));
-    }
 
     const InputWordHandler=event=>{
         setInputWord(String(event.target.value));
@@ -56,7 +52,7 @@ function Computer(props){
     const buttonHandler=()=>{
         let trigger=true;
         if(flag===true){
-            JSonHandler();
+            englishWords.map((data)=>dictionary.push(String(data)));
             flag=false;
         }
         while(trigger){
@@ -68,7 +64,7 @@ function Computer(props){
             }
             if(!dictionary.includes(inputword)){
                 setError({title:"Ivalid input", message:"Entered word doesn't exist in english dictionaty.Please enter another word.."});
-                console.log(error);
+                setStop(false);
                 return;
             }
             setcomputerWords(computerChoice(inputword[inputword.length-1]));
@@ -79,19 +75,19 @@ function Computer(props){
 
     const ErrorHandler= ()=>{
         setError(null);
+        setStop(true);
     };
 
     return(
         <div className={classes.ComputerContainer}>
-            {error && <ErrorModal title={error.title} message={error.message} onConfirm={ErrorHandler}/>}
-            {!stop && <div className={classes.computerField}>
+            {error && !stop && <ErrorModal  title={error.title} message={error.message} onConfirm={ErrorHandler}/>}
+            {stop && <div className={classes.computerField}>
                     <p className={classes.computer}>{computerWord}</p>
             </div>}
-      
-            <div className={classes.inputContainerC}>
+           {stop && <div className={classes.inputContainerC}>
                 <input className={classes.input} type='text' placeholder="Enter your word here..." onChange={InputWordHandler}/>
                 <button className={classes.button} onClick={buttonHandler}>Go!</button>
-            </div>
+            </div>}
     </div>
     )
 }

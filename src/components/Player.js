@@ -8,7 +8,7 @@ function Player(props){
     const[inputword,setInputWord]=useState();
     const dictionary=[];
     let flag=true;
-    const [stop,setStop]=useState(false);
+    const [stop,setStop]=useState(true);
     const [oponentWord,setOponentWords]=useState('');
     
     const JSonHandler=()=>{
@@ -16,7 +16,7 @@ function Player(props){
     }
 
     const InputWordHandler=event=>{
-        setInputWord(String(event.target.value));
+        setInputWord(String(event.target.value).toLocaleLowerCase());
     } 
 
     const OponentChoice=(letter)=>{
@@ -31,6 +31,7 @@ function Player(props){
 
     const ErrorHandler= ()=>{
         setError(null);
+        setStop(true);
     };
 
     const buttonHandler=()=>{
@@ -43,7 +44,7 @@ function Player(props){
 
         if(!dictionary.includes(inputword)){
             setError({title:"Ivalid input", message:"Entered word doesn't exist in english dictionaty.Please enter another word.."});
-            console.log(error);
+            setStop(false);
             return;
         }
 
@@ -61,13 +62,13 @@ function Player(props){
 
     return(
         <div className={classes.playerContainer}>
-            {error && <ErrorModal title={error.title} message={error.message} onConfirm={ErrorHandler}/>}
-            <div className={classes.inputContainer}>
+            {error && !stop && <ErrorModal title={error.title} message={error.message} onConfirm={ErrorHandler}/>}
+            {stop && <div className={classes.inputContainer}>
                 <input className={classes.input} type='text' placeholder="Enter your word here..." onChange={InputWordHandler}/>
                 <button className={classes.button} onClick={buttonHandler}>Go!</button>
-            </div>
+            </div>}
                 <div className={classes.computerField}>
-                {!stop && <div>
+                {stop && <div>
                         <p className={classes.computer}>{oponentWord}</p>
                 </div>}
             </div>

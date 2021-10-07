@@ -50,3 +50,11 @@ footer{
     height: 30px;
     background:#161616 ;
 }
+
+@media  screen
+  and (max-device-width: 600px){
+    .main{
+    display: flex;
+    flex-direction: column;
+    }
+  }

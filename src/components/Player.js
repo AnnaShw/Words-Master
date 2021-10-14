@@ -10,7 +10,6 @@ function Player(props){
     let flag=true;
     const [stop,setStop]=useState(true);
     const [oponentWord,setOponentWords]=useState('');
-    
     const JSonHandler=()=>{
         englishWords.map((data)=>dictionary.push(String(data)));
     }
@@ -36,7 +35,7 @@ function Player(props){
 
     const buttonHandler=()=>{
         let trigger=true;
-
+        
         if(flag===true){
             JSonHandler();
             flag=false;
@@ -63,8 +62,8 @@ function Player(props){
     return(
         <div className={classes.playerContainer}>
             {error && !stop && <ErrorModal title={error.title} message={error.message} onConfirm={ErrorHandler}/>}
-            {stop && <div className={classes.inputContainer}>
-                <input className={classes.input} type='text' placeholder="Enter your word here..." onChange={InputWordHandler}/>
+            {stop && <div className={classes.inputContainerC}>
+                <input className={classes.input}  type='text' placeholder="Enter your word here..." onChange={InputWordHandler}/>
                 <button className={classes.button} onClick={buttonHandler}>Go!</button>
             </div>}
                 <div className={classes.computerField}>

@@ -8,6 +8,15 @@
     border: 2px solid black;
 }
 
+@media(max-width:786px){
+    .gameContainer{
+            width: 90%;
+    }
+    .insider{
+        width: 100%;
+    }
+}
+
 .insider{
     display: flex;
     justify-content: space-around;

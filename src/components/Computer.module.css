@@ -68,6 +68,15 @@
     animation-timing-function:ease-out;
 }
 
+@media(max-width:786px){
+    .computer{
+        font-size: 40px;
+    }
+    .input{
+        width: 100%;
+    }
+}
+
 @keyframes resize-anime {
     from {
       font-size: 60px;
